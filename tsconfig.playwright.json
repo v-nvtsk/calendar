@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {},
+    "noEmit": true,
+  },
+  "extends": "./tsconfig.json",
+  "include": [
+    "tests/**/*"
+  ],
+}

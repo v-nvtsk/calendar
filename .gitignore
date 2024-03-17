@@ -1,0 +1,9 @@
+node_modules
+coverage
+reports
+dist
+.vscode
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
