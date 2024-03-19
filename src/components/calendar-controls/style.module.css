@@ -1,0 +1,57 @@
+.controls {
+  --controls-height: 40px;
+
+  padding: 5px;
+  border-bottom: 1px solid black;
+  display: flex;
+  gap: 20px;
+  height: calc(var(--controls-height) + 10px);
+  width: 100%;
+}
+
+.btn {
+  padding: 5px;
+  border: 1px solid black;
+  cursor: pointer;
+  height: var(--controls-height);
+  appearance: none;
+}
+
+.btnToday {
+  background-color: transparent;
+  padding: 10px;
+}
+
+.btnToday:hover {
+  background-color: lightgray;
+}
+
+.btnGroup {
+  display: flex;
+  gap: 5px;
+}
+
+.btnPrev,
+.btnNext {
+  width: var(--controls-height);
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnPrev:hover,
+.btnNext:hover {
+  background-color: lightgray;
+}
+
+.textContent {
+  font-size: 30px;
+}
+
+.separator {
+  margin-left: auto;
+}
