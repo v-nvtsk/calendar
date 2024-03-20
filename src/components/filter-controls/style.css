@@ -1,0 +1,17 @@
+.filter-controls {
+  padding-bottom: 10px;
+}
+
+.filter__fieldset {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.filter__group {
+  display: flex;
+  flex-direction: column;
+  place-content: end;
+}
