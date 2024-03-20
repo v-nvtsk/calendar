@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { Store } from "../../store";
+import { store } from "../../store";
 import { CalendarControls } from "./calendar-controls";
 
 describe("CalendarControls", () => {
@@ -12,7 +12,7 @@ describe("CalendarControls", () => {
   it("should render", async () => {
     const component = await act(async () =>
       render(
-        <Provider store={Store}>
+        <Provider store={store}>
           <BrowserRouter>
             <CalendarControls
               controlsTitle="testTitle"
@@ -50,7 +50,7 @@ describe("CalendarControls", () => {
     const mockedFn = jest.fn();
     const component = await act(async () =>
       render(
-        <Provider store={Store}>
+        <Provider store={store}>
           <BrowserRouter>
             <CalendarControls
               controlsTitle="testTitle"
@@ -78,7 +78,7 @@ describe("CalendarControls", () => {
     const mockedFn = jest.fn();
     await act(async () =>
       render(
-        <Provider store={Store}>
+        <Provider store={store}>
           <BrowserRouter>
             <CalendarControls
               controlsTitle="testTitle"
@@ -107,7 +107,7 @@ describe("CalendarControls", () => {
     const mockedFn = jest.fn();
     await act(async () =>
       render(
-        <Provider store={Store}>
+        <Provider store={store}>
           <BrowserRouter>
             <CalendarControls
               controlsTitle="testTitle"
@@ -136,7 +136,7 @@ describe("CalendarControls", () => {
     const mockedFn = jest.fn();
     const component = await act(async () =>
       render(
-        <Provider store={Store}>
+        <Provider store={store}>
           <BrowserRouter>
             <CalendarControls
               controlsTitle="testTitle"
@@ -162,7 +162,7 @@ describe("CalendarControls", () => {
     const mockedFn = jest.fn();
     const component = await act(async () =>
       render(
-        <Provider store={Store}>
+        <Provider store={store}>
           <BrowserRouter>
             <CalendarControls
               controlsTitle="testTitle"
