@@ -1,0 +1,56 @@
+.month {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding-top: 5px;
+}
+
+.date {
+  padding: 5px;
+  aspect-ratio: 1 / 1;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.date[data-tasks="0"] {
+  background-color: transparent;
+}
+
+.date:hover {
+  /* cursor: pointer; */
+  background-color: rgba(100 100 100 / 0.1);
+}
+
+.date__value {
+  font-weight: 700;
+}
+
+.date__link:link {
+  display: block;
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px solid black;
+}
+
+.date.date_current .date__link {
+  /* background-color: rgba(237, 126, 101, 0.868); */
+  font-weight: 600;
+  color: black;
+  border-bottom: 3px solid rgba(237, 126, 101, 0.868);
+}
+
+.date__task {
+  list-style-type: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.year__month-day_prev-month,
+.year__month-day_next-month {
+  filter: grayscale(1);
+  opacity: 0.5;
+}
