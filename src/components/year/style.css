@@ -1,0 +1,110 @@
+.year {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 200px));
+  justify-content: space-evenly;
+  align-items: stretch;
+  /* column-gap: calc(25% - 250px); */
+  column-gap: 20px;
+
+  row-gap: 40px;
+  grid-auto-rows: 1fr;
+
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
+
+@media (width < 1200px) {
+  .year {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 200px));
+  }
+}
+
+.year__month {
+  padding: 5px 15px;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.year__month[data-tasks="0"] {
+  background-color: white;
+}
+
+.year__month-title {
+  display: block;
+  /* font-size: 1.25rem; */
+  font-weight: 500;
+  padding-bottom: 5px;
+  position: relative;
+}
+
+.year__month-title.current:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  border-bottom: 4px rgba(237, 126, 101, 0.868) solid;
+}
+
+.year__month-weekdays,
+.year__month-days {
+  margin-top: 5px;
+
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  /* gap: 5px; */
+  justify-items: center;
+}
+
+.year__month-weekdays {
+  padding: 3px 0;
+  border-bottom: 1px solid black;
+}
+
+.year__month-weekday {
+  font-weight: 500;
+}
+
+.year__month-day {
+  width: 100%;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.year__month-day.year__month-day_current {
+  background-color: rgba(1, 1, 255, 0.518);
+  color: white;
+}
+
+.year__month-day:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+}
+
+.year .year__month-day.year__month-day_prev-month,
+.year .year__month-day.year__month-day_next-month {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.year__month-day.year__month-day_has-tasks {
+  background-color: rgba(112, 54, 54, 0.518);
+  color: white;
+}
+
+.year__month-day.year__month-day_current.year__month-day_has-tasks {
+  border: 3px solid blue;
+}
+
+.year a:link,
+.year a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.year a:link:hover {
+  text-decoration: underline;
+}
