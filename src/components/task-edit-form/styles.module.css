@@ -1,0 +1,13 @@
+.editGroup {
+  display: grid;
+  grid-template-columns: 150px auto;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.label {
+  font-weight: bold;
+}
+.input {
+  font-size: 20px;
+}
