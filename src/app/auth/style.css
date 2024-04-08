@@ -1,0 +1,7 @@
+@import "../vars.css";
+
+.page__auth {
+  display: flex;
+  place-content: center;
+  height: calc(100vh - var(--header-height));
+}
