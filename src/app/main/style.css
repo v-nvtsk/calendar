@@ -1,0 +1,23 @@
+.page__home {
+  margin-top: 100px;
+  padding: 20px 40px;
+}
+
+.page__home .home__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.content-frame {
+  line-height: 1.75;
+}
+
+.image-frame {
+  max-height: 500px;
+}
+
+.home-image {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
