@@ -1,0 +1,37 @@
+.task {
+  padding: 50px;
+  font-size: 20px;
+}
+
+.taskGroup {
+  display: flex;
+  gap: 20px;
+}
+
+.checkbox {
+  transform: scale(2);
+  cursor: pointer;
+}
+
+.taskField {
+  display: grid;
+  grid-template-columns: 150px auto;
+}
+
+.fieldName {
+  font-weight: bold;
+}
+
+.taskNoTags {
+  font-weight: bold;
+}
+
+.tagsList {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+.tag::before {
+  content: "🏷";
+}
