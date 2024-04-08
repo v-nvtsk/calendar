@@ -5,7 +5,7 @@ import App from "./app";
 
 export const Root = () => (
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename="/calendar-app">
       <App />
     </BrowserRouter>
   </Provider>

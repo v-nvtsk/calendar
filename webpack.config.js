@@ -10,7 +10,7 @@ module.exports = (env) => ({
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
-    publicPath: "/",
+    publicPath: "/calendar-app",
   },
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
