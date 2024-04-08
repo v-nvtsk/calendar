@@ -10,7 +10,7 @@ import { Calendar } from "./calendar/calendar";
 import { Main } from "./main/main";
 import { Profile } from "./profile/profile";
 import "./style.css";
-import { TaskView } from "./task";
+import { Task } from "./task";
 
 function App() {
   sessionStorage.getItem("token");
@@ -44,8 +44,7 @@ function App() {
             }
           />
           <Route path="auth/:action" element={<Auth />} />
-          <Route path="/task?" element={<TaskView />} />
-
+          <Route path="/task/:action?" element={<Task />} />
           <Route
             path="profile"
             element={
