@@ -3,9 +3,15 @@ import { BrowserRouter } from "react-router-dom";
 import { store } from "../store";
 import App from "./app";
 
+declare global {
+  interface Window {
+    PUBLIC_PATH: string;
+  }
+}
+
 export const Root = () => (
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename={window.PUBLIC_PATH}>
       <App />
     </BrowserRouter>
   </Provider>
