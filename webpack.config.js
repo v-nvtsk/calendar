@@ -63,10 +63,10 @@ module.exports = (env) => ({
   },
   plugins: [
     new webpack.ProvidePlugin({
-      base: "https://v-nvtsk.github.io/otus-jsbasic-final-project/",
       React: "react",
     }),
     new HtmlWebpackPlugin({
+      base: "https://v-nvtsk.github.io/otus-jsbasic-final-project/",
       title: "Calendar",
     }),
     new webpack.DefinePlugin({
