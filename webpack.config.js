@@ -62,14 +62,14 @@ module.exports = (env) => ({
     ],
   },
   plugins: [
-    new webpack.DefinePlugin({
-      PUBLIC_PATH: JSON.stringify(PUBLIC_PATH),
-    }),
     new webpack.ProvidePlugin({
       React: "react",
     }),
     new HtmlWebpackPlugin({
       title: "Calendar",
+    }),
+    new webpack.DefinePlugin({
+      PUBLIC_PATH: JSON.stringify(PUBLIC_PATH),
     }),
   ],
 });
