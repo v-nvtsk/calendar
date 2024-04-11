@@ -3,9 +3,11 @@ import { BrowserRouter } from "react-router-dom";
 import { store } from "../store";
 import App from "./app";
 
+declare const PUBLIC_PATH: string;
+
 export const Root = () => (
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename={PUBLIC_PATH}>
       <App />
     </BrowserRouter>
   </Provider>

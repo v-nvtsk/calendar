@@ -1,0 +1,64 @@
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { TaskEditForm } from "./task-edit-form";
+
+describe("TaskEditForm", () => {
+  const item = {
+    id: "1",
+    taskTitle: "task 1",
+    description: "some description",
+    creationDate: new Date("2024-01-01").valueOf(),
+    status: false,
+    startDate: new Date("2024-01-01").valueOf(),
+    endDate: new Date("2024-01-02").valueOf(),
+    tags: "tag 1, tag 2",
+  };
+
+  it("should render", async () => {
+    const component = render(<TaskEditForm task={item} onEdit={() => {}} />);
+    expect(component.container).toBeInTheDocument();
+    expect(screen.getByRole("textbox", { name: /task title/i }));
+    expect(screen.getByLabelText(/start date/i));
+    expect(screen.getByLabelText(/end date/i));
+    expect(screen.getByRole("textbox", { name: /tags/i }));
+    expect(screen.getByRole("button")).toBeInTheDocument();
+  });
+
+  it("should submit changed item", async () => {
+    const mockOnEdit = jest.fn();
+
+    const updates = {
+      taskTitle: "new title",
+      description: "new description",
+      startDate: new Date("2024-01-01").valueOf(),
+      endDate: new Date("2024-01-02").valueOf(),
+      tags: "new tags",
+    };
+
+    render(<TaskEditForm task={item} onEdit={mockOnEdit} />);
+
+    const taskTitleEl = screen.getByRole("textbox", { name: /task title/i }) as HTMLInputElement;
+    const descriptionEl = screen.getByRole("textbox", { name: /task title/i }) as HTMLInputElement;
+    const tagsEl = screen.getByRole("textbox", { name: /task title/i }) as HTMLInputElement;
+
+    await userEvent.click(taskTitleEl);
+    await userEvent.clear(taskTitleEl);
+    await userEvent.type(taskTitleEl, updates.taskTitle);
+    expect(taskTitleEl).toHaveValue(updates.taskTitle);
+
+    await userEvent.click(descriptionEl);
+    await userEvent.clear(descriptionEl);
+    await userEvent.type(descriptionEl, updates.description);
+    expect(descriptionEl).toHaveValue(updates.description);
+
+    await userEvent.click(tagsEl);
+    await userEvent.clear(tagsEl);
+    await userEvent.type(tagsEl, updates.tags);
+    expect(tagsEl).toHaveValue(updates.tags);
+
+    screen.debug();
+
+    await userEvent.click(screen.getByText(/save task/i));
+    expect(mockOnEdit).toHaveBeenCalledWith(updates);
+  });
+});
