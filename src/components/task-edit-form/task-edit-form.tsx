@@ -27,6 +27,13 @@ export function TaskEditForm({ task, onEdit }: PropsType) {
     const description = taskEditForm.description.value;
     const tags = taskEditForm.tags.value;
     onEdit({ taskTitle, description, startDate, endDate, tags });
+    console.log("{ taskTitle, description, startDate, endDate, tags }: ", {
+      taskTitle,
+      description,
+      startDate,
+      endDate,
+      tags,
+    });
   };
 
   return (
@@ -84,7 +91,7 @@ export function TaskEditForm({ task, onEdit }: PropsType) {
           <input className={styles.input} type="text" name="tags" id="tags" defaultValue={task.tags} />
         </div>
 
-        <input type="submit" value="Save task" />
+        <input className={styles.btn} type="submit" value="Save task" />
       </form>
     </div>
   );
