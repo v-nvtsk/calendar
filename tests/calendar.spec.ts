@@ -1,10 +1,8 @@
 import { test } from "@playwright/test";
 import { getCurrentWeekNumber, getTodayAsObject } from "../src/helpers";
 import { AuthPageObject } from "../testObjectModels/authPageModel";
-import { CalendarPageObject } from "../testObjectModels/calendarPageModel";
+import { CalendarPageObject, calendarBaseURL } from "../testObjectModels/calendarPageModel";
 import { baseURL } from "./url";
-
-const calendarBaseURL = `${baseURL}/calendar`;
 
 test.describe("Calendar", async () => {
   let calendarPage: CalendarPageObject;
@@ -46,12 +44,9 @@ test.describe("Calendar", async () => {
     await authPage.fillEmail(email);
     await authPage.fillPassword(password);
     await authPage.submitSignIn();
-    console.log("calendar page 1: ", page.url());
     await page.waitForURL(baseURL);
-    console.log("calendar page 2: ", page.url());
     calendarPage = new CalendarPageObject(page);
     await calendarPage.open();
-    console.log("calendar page 3: ", page.url());
   });
 
   testViews.map((view) =>
@@ -60,10 +55,12 @@ test.describe("Calendar", async () => {
       await test.step(`open ${view.name} view`, async () => {
         await calendarPage.changeView(view.name);
         await page.waitForURL(`${calendarBaseURL}${view.today}`);
+        await page.waitForURL(`${calendarBaseURL}${view.today}`);
       });
 
       await test.step(`goto next ${view.name}`, async () => {
         await calendarPage.goNext();
+        await page.waitForURL(`${calendarBaseURL}${view.next}`);
         await page.waitForURL(`${calendarBaseURL}${view.next}`);
       });
 
@@ -71,10 +68,12 @@ test.describe("Calendar", async () => {
         await calendarPage.goPrev();
         await calendarPage.goPrev();
         await page.waitForURL(`${calendarBaseURL}${view.prev}`);
+        await page.waitForURL(`${calendarBaseURL}${view.prev}`);
       });
 
       await test.step(`goto current ${view.name}`, async () => {
         await calendarPage.goToday();
+        await page.waitForURL(`${calendarBaseURL}${view.today}`);
         await page.waitForURL(`${calendarBaseURL}${view.today}`);
       });
     }),
