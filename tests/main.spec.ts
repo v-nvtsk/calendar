@@ -1,7 +1,8 @@
 import { expect, test } from "@playwright/test";
 import { AuthPageObject } from "../testObjectModels/authPageModel";
+import { baseURL } from "./url";
 
-const baseURL = "http://localhost:3000";
+// const baseURL = "http://localhost:3000";
 
 test.describe("main", async () => {
   test("interface", async ({ page }) => {

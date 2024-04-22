@@ -1,7 +1,10 @@
 import { expect, test } from "@playwright/test";
 import { AuthPageObject } from "../testObjectModels/authPageModel";
+import { baseURL } from "./url";
 
-const baseURL = "http://localhost:3000";
+console.log("baseURL: ", baseURL);
+
+// const baseURL = "http://localhost:3000";
 
 test.describe("Auth", () => {
   let authPage: AuthPageObject;
@@ -9,6 +12,7 @@ test.describe("Auth", () => {
   const password = "123456";
 
   test.beforeEach(async ({ page }) => {
+    console.log("page: ", page.url());
     authPage = new AuthPageObject(page);
   });
 
@@ -26,6 +30,7 @@ test.describe("Auth", () => {
       await authPage.submitSignIn();
     });
     await test.step("after authorization should be redirected back on protected path", async () => {
+      console.log("page.url(): ", page.url());
       await page.waitForURL(`${baseURL}/calendar`);
       expect(page.url()).toBe(`${baseURL}/calendar`);
     });

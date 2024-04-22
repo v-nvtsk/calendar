@@ -2,8 +2,9 @@ import { test } from "@playwright/test";
 import { getCurrentWeekNumber, getTodayAsObject } from "../src/helpers";
 import { AuthPageObject } from "../testObjectModels/authPageModel";
 import { CalendarPageObject } from "../testObjectModels/calendarPageModel";
+import { baseURL } from "./url";
 
-const baseURL = "http://localhost:3000/calendar";
+const calendarBaseURL = `${baseURL}/calendar`;
 
 test.describe("Calendar", async () => {
   let calendarPage: CalendarPageObject;
@@ -45,7 +46,7 @@ test.describe("Calendar", async () => {
     await authPage.fillEmail(email);
     await authPage.fillPassword(password);
     await authPage.submitSignIn();
-    await page.waitForURL(`http://localhost:3000/`);
+    await page.waitForURL(baseURL);
     calendarPage = new CalendarPageObject(page);
     await calendarPage.open();
   });
@@ -55,23 +56,23 @@ test.describe("Calendar", async () => {
       const page = calendarPage.getPage();
       await test.step(`open ${view.name} view`, async () => {
         await calendarPage.changeView(view.name);
-        await page.waitForURL(`${baseURL}${view.today}`);
+        await page.waitForURL(`${calendarBaseURL}${view.today}`);
       });
 
       await test.step(`goto next ${view.name}`, async () => {
         await calendarPage.goNext();
-        await page.waitForURL(`${baseURL}${view.next}`);
+        await page.waitForURL(`${calendarBaseURL}${view.next}`);
       });
 
       await test.step(`open previous ${view.name}`, async () => {
         await calendarPage.goPrev();
         await calendarPage.goPrev();
-        await page.waitForURL(`${baseURL}${view.prev}`);
+        await page.waitForURL(`${calendarBaseURL}${view.prev}`);
       });
 
       await test.step(`goto current ${view.name}`, async () => {
         await calendarPage.goToday();
-        await page.waitForURL(`${baseURL}${view.today}`);
+        await page.waitForURL(`${calendarBaseURL}${view.today}`);
       });
     }),
   );

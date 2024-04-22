@@ -1,4 +1,5 @@
 import type { Page } from "@playwright/test";
+import { baseURL } from "../tests/url";
 
 const testEmail = "test@test.test";
 const testPassword = "123456";
@@ -12,7 +13,7 @@ export class AuthPageObject {
   }
 
   async open() {
-    await this.page.goto("http://localhost:3000/auth/signin");
+    await this.page.goto(`${baseURL}/auth/signin`);
   }
 
   async authenticate() {
