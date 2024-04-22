@@ -46,10 +46,12 @@ test.describe("Calendar", async () => {
     await authPage.fillEmail(email);
     await authPage.fillPassword(password);
     await authPage.submitSignIn();
+    console.log("calendar page 1: ", page.url());
     await page.waitForURL(baseURL);
+    console.log("calendar page 2: ", page.url());
     calendarPage = new CalendarPageObject(page);
     await calendarPage.open();
-    console.log("calendar page: ", page.url());
+    console.log("calendar page 3: ", page.url());
   });
 
   testViews.map((view) =>
