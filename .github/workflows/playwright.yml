@@ -18,7 +18,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run type checks
-        run: npx tsc -p tsconfig.playwright.ts --noEmit
+        run: npx tsc -p tsconfig.playwright.json --noEmit
       - name: Run Playwright tests
         run: npx playwright test
       - uses: actions/upload-artifact@v4
