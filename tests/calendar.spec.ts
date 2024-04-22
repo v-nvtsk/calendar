@@ -49,6 +49,7 @@ test.describe("Calendar", async () => {
     await page.waitForURL(baseURL);
     calendarPage = new CalendarPageObject(page);
     await calendarPage.open();
+    console.log("calendar page: ", page.url());
   });
 
   testViews.map((view) =>

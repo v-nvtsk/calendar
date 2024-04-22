@@ -12,8 +12,9 @@ test.describe("Auth", () => {
   const password = "123456";
 
   test.beforeEach(async ({ page }) => {
-    console.log("page: ", page.url());
+    console.log("auth page: ", page.url());
     authPage = new AuthPageObject(page);
+    authPage.open();
   });
 
   test("unauthorized user", async () => {
