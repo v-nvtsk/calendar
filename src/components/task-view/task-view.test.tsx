@@ -3,13 +3,14 @@ import userEvent from "@testing-library/user-event";
 import { TaskView } from "./task-view";
 
 describe("TaskView", () => {
+  const date = new Date(2024, 0, 1, 0, 0, 0, 0).getTime();
   it("should render", async () => {
     const task = {
       id: "1",
       creationDate: 0,
       taskTitle: "title",
       description: "description for title",
-      startDate: new Date(2024, 0, 1, 0, 0, 0, 0).getTime(),
+      startDate: date,
       endDate: new Date().getTime(),
       status: true,
       tags: "tag1,tag2",
@@ -24,7 +25,7 @@ describe("TaskView", () => {
     expect(screen.getByText(/description:/i)).toBeInTheDocument();
     expect(screen.getByText(/description for title/i)).toBeInTheDocument();
     expect(screen.getByText(/Start:/i)).toBeInTheDocument();
-    expect(screen.getByText(/01\.01\.2024, 00:00:00/i)).toBeInTheDocument();
+    expect(screen.getByText(new Date(date).toLocaleString())).toBeInTheDocument();
     expect(screen.getByText(/End:/i)).toBeInTheDocument();
     expect(screen.getByText(/Tags:/i)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /tag1/i })).toBeInTheDocument();
@@ -60,6 +61,6 @@ describe("TaskView", () => {
     expect(component.container).toBeInTheDocument();
 
     expect(screen.getByText(/Start:/i)).toBeInTheDocument();
-    expect(screen.queryAllByText(/01\.01\.2024, 00:00:00/i)).toHaveLength(2);
+    expect(screen.queryAllByText(new Date(date).toLocaleString())).toHaveLength(2);
   });
 });
