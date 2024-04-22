@@ -9,7 +9,7 @@ describe("TaskView", () => {
       creationDate: 0,
       taskTitle: "title",
       description: "description for title",
-      startDate: new Date(2024, 0, 1).getTime(),
+      startDate: new Date(2024, 0, 1, 0, 0, 0, 0).getTime(),
       endDate: new Date().getTime(),
       status: true,
       tags: "tag1,tag2",
@@ -49,7 +49,7 @@ describe("TaskView", () => {
       creationDate: 0,
       taskTitle: "title",
       description: "description for title",
-      startDate: new Date(2024, 0, 1).getTime(),
+      startDate: new Date(2024, 0, 1, 0, 0, 0, 0).getTime(),
       status: true,
       tags: "tag1,tag2",
     };
