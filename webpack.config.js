@@ -20,8 +20,16 @@ module.exports = (env) => ({
   },
   devServer: {
     port: 3000,
-    historyApiFallback: true,
+    historyApiFallback: {
+      rewrites: [
+        {
+          from: /.*/,
+          to: PUBLIC_PATH,
+        },
+      ],
+    },
     hot: true,
+    open: [PUBLIC_PATH],
   },
   module: {
     rules: [
