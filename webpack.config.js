@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 
 const PUBLIC_PATH = process.env.CI ? "/otus-jsbasic-final-react" : "/";
+console.log("WEBPACK PUBLIC_PATH: ", PUBLIC_PATH);
 
 module.exports = (env) => ({
   mode: env.mode === "development" ? "development" : "production",
