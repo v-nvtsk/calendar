@@ -1,6 +1,5 @@
 import type { Page } from "@playwright/test";
-
-const baseURL = "http://localhost:3000/calendar";
+import { baseURL } from "../tests/url";
 
 export class CalendarPageObject {
   constructor(private page: Page) {}
@@ -11,7 +10,8 @@ export class CalendarPageObject {
   }
 
   async open(view: string = "year") {
-    await this.page.goto(`${baseURL}/${view}`);
+    console.log("baseURL: ", baseURL);
+    await this.page.goto(`${baseURL}/calendar/${view}`);
   }
 
   async addTask(title: string, description: string, date: string, tags: string) {
