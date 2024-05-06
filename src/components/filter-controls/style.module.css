@@ -1,0 +1,63 @@
+.filter-controls {
+  padding-bottom: 10px;
+}
+
+.filter__fieldset {
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 5px;
+  border-radius: 5px;
+
+  display: grid;
+  grid-template-areas:
+    "dateFrom dateTo"
+    "status status"
+    "text text"
+    "tags tags"
+    "btn btn";
+}
+
+.dateFromGroup,
+.dateToGroup,
+.textGroup,
+.statusGroup,
+.tagsGroup,
+.btnGroup {
+  display: flex;
+  flex-direction: column;
+  place-content: end;
+}
+
+.dateFromGroup {
+  grid-area: dateFrom;
+}
+
+.dateToGroup {
+  grid-area: dateTo;
+}
+
+.textGroup {
+  grid-area: text;
+}
+
+.statusGroup {
+  grid-area: status;
+}
+
+.tagsGroup {
+  grid-area: tags;
+}
+
+.btnGroup {
+  grid-area: btn;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  outline: none;
+  max-width: 40%;
+  padding: 5px 10px;
+}

@@ -1,0 +1,52 @@
+.hours {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  --color: rgba(101, 158, 237, 0.868);
+  --current-color: rgba(237, 126, 101, 0.868);
+}
+
+.hour {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 20px;
+  box-shadow: inset 80px 1px var(--color);
+  padding: 5px;
+}
+
+.hourTitle {
+  /* background-color: var(--color); */
+  width: 70px;
+
+  color: white;
+}
+
+.currentHour {
+  box-shadow: inset 80px 1px var(--current-color);
+}
+
+.currentHour .hourTitle {
+  background-color: var(--current-color);
+  color: black;
+  font-weight: 700;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  list-style-type: none;
+}
+
+.task {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+.taskTitle {
+  font-size: 1.25rem;
+}
+
+.taskDescription {
+  font-size: 0.75rem;
+}

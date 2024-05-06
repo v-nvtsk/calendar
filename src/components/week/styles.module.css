@@ -1,0 +1,80 @@
+.week {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  height: 100%;
+}
+
+.weekDay {
+  padding: 10px;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+.title {
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+}
+
+.weekDay:after {
+  content: "";
+  top: 0;
+  height: 100%;
+  width: 1px;
+  position: absolute;
+  right: 0;
+  background-color: black;
+}
+
+.weekDay:last-of-type::after {
+  content: none;
+}
+
+.taskList {
+  margin-top: 10px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.task {
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: rgba(61, 151, 53, 0.308);
+}
+
+.taskContent {
+  padding: 5px;
+}
+
+.link,
+.link:link,
+.link:visited {
+  color: black;
+}
+
+.link:link {
+  text-decoration: none;
+}
+
+.link:hover .taskTitle,
+.link:hover .title {
+  text-decoration: underline;
+}
+
+.divider {
+  margin: 0 3px;
+  height: 1px;
+  background-color: black;
+}
+
+.description {
+  margin-top: 2px;
+  font-size: 0.8rem;
+  font-style: italic;
+  color: rgba(100, 100, 100, 1);
+}
