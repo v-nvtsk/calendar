@@ -32,22 +32,22 @@ npm start
 
 Варианты страниц календаря:  
 Вид года:  
-![alt text](year-view.png.jpg)
+![year-view](./images/year-view.jpg)
 
 Вид Месяца:  
-![alt text](month-view.png.jpg)
+![month-view](./images/month-view.jpg)
 
 Вид недели:  
-![alt text](week-view.png.jpg)
+![week-view](./images/week-view.jpg)
 
 Вид дня:  
-![alt text](day-view.png.jpg)
+![day-view](./images/day-view.jpg)
 
 Список дел:  
-![alt text](task-list.png.jpg)
+![list-view](./images/task-list.jpg)
 
 Добавление и фильтрация в боковой панели  
- ![alt text](sidepanel.png.jpg)
+ ![sidebar](./images/sidepanel.jpg)
 
 ## TODO
 
