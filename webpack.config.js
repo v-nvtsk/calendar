@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 
-const PUBLIC_PATH = process.env.CI ? "/otus-jsbasic-final-react/" : "/";
+const PUBLIC_PATH = process.env.CI ? "/otus-jsbasic-calendar/" : "/";
 
 module.exports = (env) => ({
   mode: env.mode === "development" ? "development" : "production",
