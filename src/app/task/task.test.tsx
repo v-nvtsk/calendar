@@ -58,13 +58,13 @@ describe("Task", () => {
           const btn = screen.getByRole("button", { name: /save task/i });
           expect(btn).toBeInTheDocument();
           jest.spyOn(firebase, "update");
-          await userEvent.click(btn);
+          await act(async () => userEvent.click(btn));
           expect(firebase.update).toHaveBeenCalled();
           expect(screen.getByTestId("location-display")).toHaveTextContent("/task/view");
         } else if (path.name === "view") {
           const btn = screen.getByRole("button", { name: /edit/i });
           expect(btn).toBeInTheDocument();
-          await userEvent.click(btn);
+          await await act(async () => userEvent.click(btn));
           expect(screen.getByTestId("location-display")).toHaveTextContent("/task/edit");
         }
       }),

@@ -1,3 +1,5 @@
+import AddIcon from "@mui/icons-material/Add";
+import { Fab } from "@mui/material";
 import { useCallback, useLayoutEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
@@ -16,8 +18,9 @@ import {
   getWeekNumber,
   sanitizeObject,
 } from "../../helpers";
-import { AppDispatch, StoreRootState } from "../../store";
-import { CalendarState, read, update } from "../../store/calendarSlice";
+import { AppDispatch } from "../../store";
+import { read, update } from "../../store/calendarSlice";
+import { rootSelectors } from "../../store/selectors";
 import "./style.css";
 
 export function Calendar() {
@@ -26,7 +29,7 @@ export function Calendar() {
   const [subfilter, setSubFilter] = useState<Filter>({});
 
   const dispatch = useDispatch<AppDispatch>();
-  const calendarState = useSelector<StoreRootState>((state) => state.calendar) as CalendarState;
+  const calendarState = useSelector(rootSelectors.calendarState);
   const { items } = calendarState;
 
   const navigate = useNavigate();
@@ -118,6 +121,15 @@ export function Calendar() {
 
   const isLoading = calendarState.isLoading ? "loading" : "";
 
+  const style = {
+    margin: 0,
+    top: "auto",
+    right: 100,
+    bottom: 100,
+    left: "auto",
+    position: "fixed",
+  };
+
   return (
     <main className={`page__calendar ${isLoading}`}>
       <Sidebar className="calendar__sidebar" onFilter={callbacks.onFilter} subfilter={subfilter} />
@@ -143,6 +155,9 @@ export function Calendar() {
           items={items}
         />
       )}
+      <Fab sx={style} color="primary" aria-label="add" onClick={() => alert("add")}>
+        <AddIcon />
+      </Fab>
     </main>
   );
 }
