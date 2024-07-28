@@ -1,3 +1,4 @@
+import { Button, TextareaAutosize, TextField } from "@mui/material";
 import React, { FormEvent } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../store";
@@ -34,6 +35,7 @@ export function TaskAddForm(): JSX.Element {
   };
 
   return (
+    // <FormControl onSubmit={submitHandler}>
     <form id="task-add-form" className="task-add" onSubmit={submitHandler}>
       <fieldset className="task-add__fieldset">
         <legend>Add task</legend>
@@ -41,7 +43,7 @@ export function TaskAddForm(): JSX.Element {
           <label className="task-add__label" htmlFor="taskTitle">
             Title:
           </label>
-          <input
+          <TextField
             type="text"
             name="taskTitle"
             id="taskTitle"
@@ -54,9 +56,10 @@ export function TaskAddForm(): JSX.Element {
           <label className="task-add__label" htmlFor="description">
             Task description:
           </label>
-          <textarea
+          <TextareaAutosize
             name="description"
             id="description"
+            minRows={2}
             className="task-add__input-description"
             placeholder="Enter task description..."
           />
@@ -65,13 +68,13 @@ export function TaskAddForm(): JSX.Element {
           <label className="task-add__label" htmlFor="startDate">
             Event date and time:
           </label>
-          <input type="datetime-local" name="startDate" id="startDate" className="task-add__input-date" required />
+          <TextField type="datetime-local" name="startDate" id="startDate" className="task-add__input-date" required />
         </div>
         <div className="task-add__group">
           <label className="task-add__label" htmlFor="tags">
             Tags:
           </label>
-          <input
+          <TextField
             type="text"
             name="tags"
             id="tags"
@@ -80,11 +83,12 @@ export function TaskAddForm(): JSX.Element {
           />
         </div>
         <div className="task-add__group">
-          <button type="submit" className="task-add__btn-add">
+          <Button type="submit" className="task-add__btn-add" variant="contained">
             Add
-          </button>
+          </Button>
         </div>
       </fieldset>
     </form>
+    // </FormControl>
   );
 }
