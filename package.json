@@ -7,6 +7,7 @@
   "scripts": {
     "prepare": "husky",
     "start": "webpack serve --open --mode=development",
+    "clean": "rm -rf coverage dist reports",
     "dev": "npm run tsc & webpack --mode=development",
     "test": "jest",
     "test:watch": "npx jest ./src --coverage --watch",
@@ -30,8 +31,9 @@
     "@commitlint/types": "^19.0.3",
     "@playwright/test": "^1.43.1",
     "@stylistic/eslint-plugin-ts": "^1.6.3",
+    "@testing-library/dom": "^10.3.2",
     "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^14.2.1",
+    "@testing-library/react": "^14.3.1",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.12.5",
@@ -67,6 +69,10 @@
     "webpack-dev-server": "^5.0.2"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^5.16.5",
+    "@mui/material": "^5.16.5",
     "@reduxjs/toolkit": "^2.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

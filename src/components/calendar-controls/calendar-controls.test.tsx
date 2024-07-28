@@ -32,13 +32,11 @@ describe("CalendarControls", () => {
     const todayBtn = component.getByRole("button", { name: /today/i });
     expect(todayBtn).toBeInTheDocument();
     const buttons = screen.queryAllByRole("button", {});
-    expect(buttons.length).toBe(4);
+    expect(buttons.length).toBe(3);
     const prevBtn = buttons[1];
     expect(prevBtn.classList.contains("btnPrev")).toBe(true);
     const nextBtn = buttons[2];
     expect(nextBtn.classList.contains("btnNext")).toBe(true);
-    const searchBtn = buttons[3];
-    expect(searchBtn.classList.contains("btn")).toBe(true);
 
     const combobox = component.getByRole("combobox") as HTMLSelectElement;
     expect(combobox).toBeInTheDocument();
@@ -93,7 +91,7 @@ describe("CalendarControls", () => {
     );
 
     const buttons = screen.queryAllByRole("button", {});
-    expect(buttons.length).toBe(4);
+    expect(buttons.length).toBe(3);
     const prevBtn = buttons[1];
     expect(prevBtn.classList.contains("btnPrev")).toBe(true);
     await user.click(prevBtn);
@@ -121,7 +119,7 @@ describe("CalendarControls", () => {
     );
 
     const buttons = screen.queryAllByRole("button", {});
-    expect(buttons.length).toBe(4);
+    expect(buttons.length).toBe(3);
     const nextBtn = buttons[2];
     expect(nextBtn.classList.contains("btnNext")).toBe(true);
     await user.click(nextBtn);
@@ -179,10 +177,8 @@ describe("CalendarControls", () => {
     expect(searchInput.value).toBe("test");
 
     const buttons = screen.queryAllByRole("button", {});
-    expect(buttons.length).toBe(4);
-    const searchBtn = buttons[3];
-    expect(searchBtn.classList.contains("btn")).toBe(true);
-    await user.click(searchBtn);
+    expect(buttons.length).toBe(3);
+    await userEvent.keyboard("[Enter]");
     expect(mockedFn).toHaveBeenCalled();
   });
 });

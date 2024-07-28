@@ -1,10 +1,10 @@
 import { useLayoutEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Navigate, useLocation, useNavigate, useParams } from "react-router-dom";
 import { AuthForm } from "../../components/auth-form/auth-form";
-import { AppDispatch, StoreRootState } from "../../store";
-import { AuthState, resetPassword, signIn, signUp } from "../../store/authSlice";
+import * as selectors from "../../store/selectors/rootSelectors";
 import "./style.css";
+import useCallbacks from "./use-callbacks";
 
 export function Auth() {
   const navigate = useNavigate();
@@ -13,8 +13,8 @@ export function Auth() {
   const activeForm = params.action || "";
   const from = location.state !== null ? location.state.from : null;
 
-  const dispatch = useDispatch<AppDispatch>();
-  const authState = useSelector<StoreRootState>((state) => state.auth) as AuthState;
+  const callbacks = useCallbacks({ activeForm, from, navigate });
+  const authState = useSelector(selectors.authState);
 
   useLayoutEffect(() => {
     if (authState.isAuthenticated && !authState.isLoading) {
@@ -22,17 +22,6 @@ export function Auth() {
       else navigate("/");
     }
   }, [authState.isAuthenticated]);
-
-  const callbacks = {
-    onSubmit: (email: string, password: string) => {
-      if (activeForm === "signin") dispatch(signIn({ email, password }));
-      else if (activeForm === "signup") dispatch(signUp({ email, password }));
-      else if (activeForm === "recover") dispatch(resetPassword({ email }));
-    },
-    changeForm(pathname: string) {
-      navigate(pathname, { replace: true, state: { state: from } });
-    },
-  };
 
   if (["signin", "signup", "recover"].includes(activeForm))
     return (

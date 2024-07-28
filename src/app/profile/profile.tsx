@@ -1,14 +1,15 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, StoreRootState } from "../../store";
+import { AppDispatch } from "../../store";
 import { signOut, updateEmail } from "../../store/authSlice";
-import { UserState, getData } from "../../store/userSlice";
+import { rootSelectors } from "../../store/selectors";
+import { getData } from "../../store/userSlice";
 import styles from "./style.module.css";
 
 export function Profile() {
   const dispatch = useDispatch<AppDispatch>();
 
-  const userData = useSelector<StoreRootState>((state) => state.user) as UserState;
+  const userData = useSelector(rootSelectors.userData);
 
   useEffect(() => {
     dispatch(getData());

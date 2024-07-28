@@ -1,10 +1,7 @@
-import { useCallback } from "react";
-import { useDispatch } from "react-redux";
 import { TodoItem } from "../../api/calendar.types";
-import { AppDispatch } from "../../store";
-import { deleteTask, update } from "../../store/calendarSlice";
 import { TaskItem } from "../task-item/task-item";
 import "./style.css";
+import useCallbacks from "./use-callbacks";
 
 type ListProps = {
   tasks: TodoItem[];
@@ -12,20 +9,8 @@ type ListProps = {
 };
 
 export function TaskList({ onEdit, tasks }: ListProps) {
-  const dispatch = useDispatch<AppDispatch>();
+  const callbacks = useCallbacks({ onEdit });
   const items = tasks;
-
-  const callbacks = {
-    onDelete: useCallback((id: string) => {
-      dispatch(deleteTask(id));
-    }, []),
-    onEdit: (id: string) => {
-      onEdit(id);
-    },
-    onCheck: useCallback((id: string, status: boolean) => {
-      dispatch(update({ id, status }));
-    }, []),
-  };
 
   return (
     <div className="task-list">

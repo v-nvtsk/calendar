@@ -1,5 +1,6 @@
+import { Search } from "@mui/icons-material";
+import { InputAdornment, TextField } from "@mui/material";
 import React, { useState } from "react";
-import { Button } from "..";
 import styles from "./style.module.css";
 
 export type SearchFormProps = {
@@ -18,17 +19,22 @@ export function SearchForm({ onSubmit, className = "" }: SearchFormProps) {
   };
   return (
     <form className={`${styles.searchForm} ${className}`} action="submit" onSubmit={callbacks.handleSearch}>
-      <input
-        type="text"
+      <TextField
+        variant="standard"
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="start">
+              <Search />
+            </InputAdornment>
+          ),
+        }}
         name="search"
-        className={styles.input}
         placeholder="search"
         value={inputState}
         onChange={(e) => {
           setInputState(e.target.value);
         }}
       />
-      <Button type="submit" className={styles.btn} imageType="search" />
     </form>
   );
 }

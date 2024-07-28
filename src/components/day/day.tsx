@@ -2,11 +2,11 @@ import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { TodoItem } from "../../api/calendar.types";
 import { checkIsToday } from "../../helpers";
+import { AppDispatch } from "../../store";
 import { deleteTask } from "../../store/calendarSlice";
 import { HoursList } from "../hours-list/hours-list";
 import { TaskItem } from "../task-item/task-item";
 import styles from "./style.module.css";
-import { AppDispatch } from "../../store";
 
 type PropsType = {
   year: number;

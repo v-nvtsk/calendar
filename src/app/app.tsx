@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { Header } from "../components/header/header";
 import { Private } from "../containers/private";
-import { AppDispatch, StoreRootState } from "../store";
-import { AuthState, checkAuth, signOut } from "../store/authSlice";
+import { AppDispatch } from "../store";
+import { checkAuth, signOut } from "../store/authSlice";
+import { rootSelectors } from "../store/selectors";
 import { About } from "./about/about";
 import { Auth } from "./auth/auth";
 import { Calendar } from "./calendar/calendar";
@@ -15,7 +16,7 @@ import { Task } from "./task";
 function App() {
   sessionStorage.getItem("token");
 
-  const authState = useSelector<StoreRootState>((state) => state.auth) as AuthState;
+  const authState = useSelector(rootSelectors.authState);
   const { isLoading, isAuthenticated } = authState;
   const dispatch = useDispatch<AppDispatch>();
 
