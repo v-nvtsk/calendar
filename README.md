@@ -23,6 +23,10 @@ npm install
 npm start
 ```
 
+## Описание
+
+[Тестовый запуск](https://v-nvtsk.github.io/calendar/)
+
 Возможна регистрация новых пользователей по email и паролю. Адрес электронной почты можно изменить после логина.
 
 Все представления позволяют:
@@ -31,22 +35,28 @@ npm start
 - фильтровать по статусу выполнения, дате, тексту в названии и в описании, тегам
 
 Варианты страниц календаря:  
-Вид года:  
+Вид года:
+
 ![year-view](./images/year-view.jpg)
 
 Вид Месяца:  
+
 ![month-view](./images/month-view.jpg)
 
 Вид недели:  
+
 ![week-view](./images/week-view.jpg)
 
 Вид дня:  
+
 ![day-view](./images/day-view.jpg)
 
 Список дел:  
+
 ![list-view](./images/task-list.jpg)
 
 Добавление и фильтрация в боковой панели  
+
  ![sidebar](./images/sidepanel.jpg)
 
 ## TODO
